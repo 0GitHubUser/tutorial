@@ -1,0 +1,9 @@
+url --> uniform resource locator
+http --> hypertext transfer protocol (exchange of request and 
+response b/w client and server)
+server respond to client through html -(hypertext markup language)
+or return data to client and client can generate the page so it can free up the
+server and respond to more clients
+server provide api --> application programming interface to client
+api  is like buttons of remote , all butons altogether becomes api tob communicate 
+to tv

@@ -1,3 +1,6 @@
+import random
+from binarytree import bst, build2
+
 class BST_Node:
     def __init__(self, data):
         self.data = data
@@ -29,6 +32,23 @@ class BST_Node:
             return self.right.find_val(fval)
         else:
             return 'data found'
+    
+    def bfs(self, root):
+
+        if root is None:
+            return
+        queue = [root]
+        while len(queue) > 0:
+            cur_node = queue.pop(0)
+            if cur_node.left is not None:
+                queue.append(cur_node.left)
+                print(cur_node.left)
+            if cur_node.right is not None:
+                queue.append(cur_node.right)
+                print(cur_node.left)
+        return queue
+
+
 
     def in_order_traversal(self):
         elements = []
@@ -59,7 +79,7 @@ class BST_Node:
             if self.left is None:
                 return self.right
             if self.right is None:
-                return self.right
+                return self.left
             min_val = self.right.find_min()
             self.data = min_val
             self.right = self.right.delete(min_val)
@@ -83,13 +103,20 @@ def build_tree(elements):
 
 if __name__ == '__main__':
     numbers = [22, 56, 89, 4, 67, 9, 78, 90, 14, 69]
+    # numbers2 = list()
+    # for i in range(10):
+    #     numbers2.append(random.randint(0, 100))
     numbers_tree = build_tree(numbers)
+    print(numbers_tree.bfs(numbers_tree))
     # print(numbers_tree.in_order_traversal())
-    print(numbers_tree.find_val(78))
-    print(numbers_tree.find_min())
-    print(numbers_tree.delete(89))
-    
+    # print(numbers_tree.find_val(78))
+    # print(numbers_tree.find_min())
+    # print(numbers_tree.delete(89))
+    # print(numbers_tree.bfs([]))
 
+  
+#   [22, 56, 89, 4, 67, 9, 78, 90, 14, 69]
+#    
 
 
 

@@ -32,19 +32,14 @@ class G:
         else:
             return False
 
-    def print_graph(self):
-        for key in sorted(list(self.vertices.keys())):
-            print(key + str(self.vertices[key].neighbours))
+
+v = Vert('A')
+v.add_neighbours('B')
+v.add_neighbours('C')
+v.add_neighbours('D')
 
 g = G()
-a = Vert('A')
-g.add_vertex(a)
-g.add_vertex(Vert('B'))
-for i in range(ord('A'), ord('K')):
-    g.add_vertex(Vert(chr(i)))
+g.add_vertex(v)
+g.add_edge('C', 'D')
 
-edges = ['AB', 'AE', 'BF', 'CG', 'DE', 'DH', 'EH', 'FG', 'FI', 'FJ', 'GJ', 'HI']
-for edge in edges:
-    g.add_edge(edge[:1], edge[1:])
-
-g.print_graph()
+g.print_graph(v)
